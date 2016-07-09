@@ -45,10 +45,10 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/ll_item"
-        android:background="#B2B2b2" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_below="@id/ll_item"-->
+        <!--android:background="#B2B2b2" />-->
 
 </RelativeLayout>

@@ -52,19 +52,19 @@ public class MainActivity extends AppCompatActivity {
                 mSampleAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
                 String text;
                 // 判断方向，进行不同的操作
-                if (direction == ItemTouchHelper.RIGHT) {
-                    text = "删除一项";
-                } else {
-                    text = "延迟一项";
-                }
-                Snackbar.make(viewHolder.itemView, text, Snackbar.LENGTH_LONG)
-                        .setAction("撤销", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                mData.add(pos, item);
-                                mSampleAdapter.notifyItemInserted(pos);
-                            }
-                        }).show();
+//                if (direction == ItemTouchHelper.RIGHT) {
+//                    text = "删除一项";
+//                } else {
+//                    text = "延迟一项";
+//                }
+//                Snackbar.make(viewHolder.itemView, text, Snackbar.LENGTH_LONG)
+//                        .setAction("撤销", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                mData.add(pos, item);
+//                                mSampleAdapter.notifyItemInserted(pos);
+//                            }
+//                        }).show();
             }
 
             @Override
@@ -101,13 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     ((SampleAdapter.ItemViewHolder) viewHolder).ivSchedule.setVisibility(View.VISIBLE);
                     ((SampleAdapter.ItemViewHolder) viewHolder).ivDone.setVisibility(View.GONE);
                 }
-            }
-
-            @Override
-            public void onChildDrawOver(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                // ItemTouchHelper的onDrawOver方法会调用该方法，可以使用Canvas对象进行绘制，绘制的图案会在RecyclerView的上方
-                // 默认是操作ViewHolder的itemView，这里调用ItemTouchUIUtil的clearView方法传入指定的view
-                getDefaultUIUtil().onDrawOver(c, recyclerView, ((SampleAdapter.ItemViewHolder) viewHolder).vItem, dX, dY, actionState, isCurrentlyActive);
             }
         });
         itemTouchHelper.attachToRecyclerView(rvList);
